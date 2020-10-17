@@ -1,0 +1,10 @@
+A B C
+0 1
+A
+A B
+A 0 A
+A 1 B
+B 0 A
+B 1 C
+C 0 C
+C 1 C
