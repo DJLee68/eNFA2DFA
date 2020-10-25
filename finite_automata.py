@@ -37,6 +37,8 @@ class NFA(FA): #{
     def __init__(self): #{
         super().__init__()
     #
+
+    # NFA to DFA
     def subset_construct(self): #{
         unmarked = []
         marked = []
