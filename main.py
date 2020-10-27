@@ -1,7 +1,7 @@
 from finite_automata import FA, DFA, ENFA, NFA
 
 # f_name = input('Enter file name: ')
-f = open('nfa1.txt', 'r')
+f = open('nfa2.txt', 'r')
 lines = f.readlines()
 f.close
 
