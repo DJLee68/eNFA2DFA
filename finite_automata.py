@@ -24,19 +24,23 @@ class FA(): #{
     #}
 
     def check_input(self, input): #{
-        state = self.start_state[0]
+        state = self.start_state
         for i in input: #{
+            print(i)
             if i not in self.input_symbol:#{
                 print('Rejected1!')
                 return
             #}
             for func in self.transition_function: #{
+                print(func[0], state)
                 if func[0] == state and func[1] == i: #{
-                    state = func[2]
+                    state = func[2:]
+                    print(state)
                     break
                 #}
             #}
         #}
+        print(state)
         if state in self.final_states: #{
             print('Accepted!')
             return
@@ -48,7 +52,8 @@ class FA(): #{
     #}
 
     def get_closure(self, state): #{
-        temp = [state]
+        temp = []
+        temp.extend(state)
         # search every transition function
         for func in self.transition_function: #{
             if state == func[0] and 'ep' == func[1]: #{
@@ -99,7 +104,7 @@ class FA(): #{
                 unmarked.remove(u)
             #}
         #}
-
+        self.start_state = self.get_closure(self.start_state)
         self.final_states = final
         self.transition_function = tmp_transition
         self.states = marked
